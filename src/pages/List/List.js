@@ -16,7 +16,7 @@ const List = () => {
   const getRequest = (bodyPayload) => {
     const currentDate = new Date().toISOString().split('-').join('').slice(0, 8);
     const hash = md5('Valantis_' + currentDate);
-    return fetch('http://api.valantis.store:40000/', {
+    return fetch('https://api.valantis.store:41000/', {
       method: 'POST',
       headers: { 'X-Auth': hash, 'Content-Type': 'application/json' },
       body: JSON.stringify(bodyPayload),
