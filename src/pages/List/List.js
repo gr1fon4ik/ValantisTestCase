@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { md5 } from 'js-md5';
 
+import { getRequest } from '../../api/Api';
 import ContentList from '../../components/ContentList/ContentList';
 import Menu from '../../components/Menu/Menu';
 
@@ -12,26 +12,6 @@ const List = () => {
   const [page, setPage] = useState(0);
   const isMounted = React.useRef(false);
   const [contentItems, setContentItems] = useState([]);
-
-  const getRequest = (bodyPayload) => {
-    const currentDate = new Date().toISOString().split('-').join('').slice(0, 8);
-    const hash = md5('Valantis_' + currentDate);
-    return fetch('https://api.valantis.store:41000/', {
-      method: 'POST',
-      headers: { 'X-Auth': hash, 'Content-Type': 'application/json' },
-      body: JSON.stringify(bodyPayload),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          console.log('Ошибка: код', response.status);
-          return getRequest(bodyPayload);
-        }
-        return response.json();
-      })
-      .catch((err) => {
-        console.error('Error', err);
-      });
-  };
 
   const getIds = async () => {
     const bodyPayload = { action: 'get_ids', params: { offset: 0 + 50 * page, limit: 50 } };
@@ -84,9 +64,6 @@ const List = () => {
     }
   }, [items]);
 
-  console.log('items', items);
-
-  console.log(page);
   return (
     <div className={styles.wrapper}>
       <Menu getFilteredItems={getFilteredItems} getIds={getIds} />

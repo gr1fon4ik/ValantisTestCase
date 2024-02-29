@@ -15,7 +15,6 @@ const Menu = ({ getFilteredItems, getIds }) => {
   };
 
   const onSubmitFilter = () => {
-    console.log('param', paramsBuilder());
     if (nameFilterValue === 0 && priceFilterValue === 0 && brandFilterValue === 0) {
       getIds();
     } else getFilteredItems(paramsBuilder());
