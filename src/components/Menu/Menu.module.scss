@@ -1,0 +1,68 @@
+.filtersWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  gap: 20px;
+
+  .filtersContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    .filterItem {
+      max-width: 270px;
+      .filterName {
+        font-weight: 200;
+        font-size: 14px;
+        line-height: 20px;
+      }
+      .filterInput {
+        height: 20px;
+        padding: 8px, 10px, 8px, 10px;
+        border: 1px solid #dfdfe2;
+        border-radius: 5px;
+        color: #71717a;
+        font-weight: 200;
+        font-size: 16px;
+        line-height: 20px;
+        padding-left: 8px;
+      }
+    }
+  }
+
+  .buttonContainer {
+    display: flex;
+    gap: 30px;
+
+    .filtersSubmit {
+      width: 100px;
+      height: 45px;
+      padding: 10px, 20px, 10px, 20px;
+      border-radius: 1rem;
+      background-color: #52b7e8;
+      color: white;
+      border: 0;
+      font-weight: 400;
+      size: 10px;
+      line-height: 20px;
+    }
+
+    .filtersClear {
+      width: 100px;
+      height: 45px;
+      padding: 10px, 20px, 10px, 20px;
+      border: 1px solid #52b7e8;
+      border-radius: 1rem;
+      color: #52b7e8;
+      font-weight: 400;
+      size: 10px;
+      line-height: 20px;
+    }
+    button:hover {
+      border: 1px solid #1b1b1b;
+      cursor: pointer;
+    }
+  }
+}
