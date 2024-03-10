@@ -23,7 +23,13 @@ const List = () => {
   const getItems = async () => {
     const bodyPayload = { action: 'get_items', params: { ids: id } };
     await getRequest(bodyPayload).then((data) => {
-      setItems(data.result);
+      const newItem = data.result.reduce((acc, item) => {
+        if (acc.some((el) => el.id === item.id)) {
+          return acc;
+        }
+        return [...acc, item];
+      }, []);
+      setItems(newItem);
     });
   };
 
